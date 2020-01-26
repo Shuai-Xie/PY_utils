@@ -1,0 +1,13 @@
+.DS_Store
+
+.idea/*.xml
+.idea/*.iml
+.idea/*/*.xml
+
+# 忽略所有此格式文件
+*.avi
+*.json
+*.xls
+
+# 忽略二级目录的 jupyter notebooks 缓存文件
+*/.ipynb_checkpoints
