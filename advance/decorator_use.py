@@ -1,6 +1,11 @@
 """
 Decorator 装饰器
 为函数执行前后提供功能，但不更改原函数定义
+Note:
+    1.@functools.wraps(func) 用来包装内部函数
+    2.装饰器可多层嵌套，环环深入
+    3.本质：将 功能函数 func 作为变量传入 装饰器函数 log 内部
+    4.有参装饰器函数，为了使用 @ 语法，才添加了一层包装函数
 """
 from datetime import datetime
 import time
