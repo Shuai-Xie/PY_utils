@@ -8,6 +8,8 @@
 *.avi
 *.json
 *.xls
+*.log
+*.txt
 
 # 忽略二级目录的 jupyter notebooks 缓存文件
 */.ipynb_checkpoints
