@@ -1,8 +1,7 @@
 .DS_Store
-
-.idea/*.xml
-.idea/*.iml
-.idea/*/*.xml
+.idea
+*/__pycache__
+*/.ipynb_checkpoints
 
 # 忽略所有此格式文件
 *.avi
@@ -10,6 +9,3 @@
 *.xls
 *.log
 *.txt
-
-# 忽略二级目录的 jupyter notebooks 缓存文件
-*/.ipynb_checkpoints
