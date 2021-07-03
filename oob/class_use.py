@@ -31,7 +31,7 @@ class Student:
         return self.__score
 
     def print_score(self):
-        print('%s: %s, male: %s' % (self.__name, self.__score, self.male))
+        print(self.__score)
 
 
 # 类的继承
@@ -52,6 +52,7 @@ class Undergraduate(Student):
 def demo_extend():
     a = Student('shuai', 90)
     a.print_score()
+    print(a._Student__score)
 
     b = Undergraduate('shuai', 100, 'm', 'ZJU')
     b.print_score()
@@ -90,18 +91,18 @@ def demo_poly():
 
 
 if __name__ == '__main__':
-    # demo_extend()
+    demo_extend()
     # demo_poly()
 
-    a = Undergraduate('shuai', 100, 'm', 'ZJU')
-
-    # dir 获取类对象的所有属性和方法
-    # for item in dir(a):
-    #     print(item)
-
-    # 其中 __xxx__ 的属性和方法在 Python 中都是有特殊用途，常常是 buildins
-    # 以下两个方法等价
-    setattr(a, 'male', 'f')
-    a.print_score()
-    a.__setattr__('male', 'm')  # 更加面向对象
-    a.print_score()
+    # a = Undergraduate('shuai', 100, 'm', 'ZJU')
+    #
+    # # dir 获取类对象的所有属性和方法
+    # # for item in dir(a):
+    # #     print(item)
+    #
+    # # 其中 __xxx__ 的属性和方法在 Python 中都是有特殊用途，常常是 buildins
+    # # 以下两个方法等价
+    # setattr(a, 'male', 'f')
+    # a.print_score()
+    # a.__setattr__('male', 'm')  # 更加面向对象
+    # a.print_score()

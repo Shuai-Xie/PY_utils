@@ -65,7 +65,3 @@ def test_copy_dict():
     b['a'] = 2
     print(a)
     print(b)
-
-
-if __name__ == '__main__':
-    test_copy_dict()

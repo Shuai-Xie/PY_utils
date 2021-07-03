@@ -1,5 +1,4 @@
-import pretty_errors
-
+# import pretty_errors
 
 def foo():
     print(1 / 0)

@@ -29,11 +29,10 @@ def log(func):
     return wrapper
 
 
-# 可传入参数的装饰器 [三层函数]，从外到内，层层实例化 [为了使用 @ 语法]
-# 其实 log 也可定义参数，但调用时只能 count = log(count, prefix='time')
-def log2(prefix='default'):  # 装饰器参数放这里
+# 装饰器参数，相当于实例化内部的 decorator 函数
+def log2(prefix='default'):
     # 内部包裹一个无参装饰器
-    def decorator(func):
+    def decorator(func):  # 中间层 需要 只传入 func
         # 真正 wrapper 的功能
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -49,12 +48,10 @@ def log2(prefix='default'):  # 装饰器参数放这里
 
 # 双重装饰器；将内部 log2 装饰过的函数作为 func 再装饰
 @log
-@log2(prefix='count')
+@log2(prefix='inner')
 def count(top):
     for i in range(top):
-        time.sleep(0.2)
-        print('\r{}/{}'.format(i + 1, top), end='')
-    print()
+        print(i)
 
 
 # 显示程序执行时间
@@ -70,7 +67,7 @@ def exe_time(func):
 
 
 @exe_time
-@log2(prefix='player')
+# @log2(prefix='player')
 def player(top):
     for i in range(top):
         time.sleep(0.2)
@@ -79,8 +76,4 @@ def player(top):
 
 
 if __name__ == '__main__':
-    count(3)
-
-    print(count.__name__)  # wrapper，已变成装饰器最内层的函数名
-
     player(5)

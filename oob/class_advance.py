@@ -8,6 +8,8 @@ class Student(object):
     __slots__ = ('name', 'age', 'set_age', 'show_info', 'hello')  # 用 tuple 定义允许绑定的属性名称
 
 
+# 动态添加给 Student 类的3个方法
+# 无论是否在函数中应用 self，都要传入 self 参数
 def set_age(self, age):
     self.age = age
 
@@ -23,10 +25,10 @@ def hello(self):
 
 def demo_slots():
     s = Student()
-    # 绑定属性 name
+    # 绑定属性，直接赋值即可
     s.name = 'shuai'
     s.age = 24
-    # 绑定方法
+    # 绑定方法，使用 MethodType(func, object)
     s.set_age = MethodType(set_age, s)
     s.show_info = MethodType(show_info, s)
     s.hello = MethodType(hello, s)
